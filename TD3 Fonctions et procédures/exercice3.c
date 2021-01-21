@@ -6,25 +6,28 @@ void saisie1(int *nn,int *nm){
 }
 
 
-bool verification(int xx,int yy){
-    bool valid =true;
-    int p,g;
-    while (xx/10!=0 && valid == false ){
-        p=xx%10;
-        valid=false;
-        while (yy/10 !=0 ){
-            g=yy%10;
-            if(g==p){
-                valid=true;
-                }
-            yy=yy/10;
+int verification(int x,int y){
+    int v=1;
+    int xx,yy;
+    int z;
+    while (x%10!=0 && v == 1){
+        xx=x%10;
+        v=0;
+        z=y;
+        while(z%10!=0){
+            yy=z%10;
+            if(yy==xx){
+                v=1;
+            }
+            z=z/10;
         }
-        xx=xx/10;
+        x=x/10;
+
     }
-    if (valid == true){
-        return true;
-    }else {
-        return false;
+    if(v==1){
+        return 1;
+    } else {
+        return 0;
     }
 }
 
@@ -32,8 +35,7 @@ bool verification(int xx,int yy){
 void main(){
     int n1,n2;
     saisie1(&n1,&n2);
-
-    if(verification(n1,n2)==true){
-        printf("les deux nombres sont frere.");
-    }else printf("ne sont pas frere");
+    if (verification(n1,n2)==verification(n2,n1)){
+        printf("sont des nombres frere");
+    }else printf("ne sont pas des nombre frere");
 }
