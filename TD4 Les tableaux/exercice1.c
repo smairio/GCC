@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 int main(){
     void remplir(int* t, int n);
     void affichage(int* t, int n);
@@ -11,6 +12,7 @@ int main(){
     printf("\n=========================\n");
     compression(t,&n);
     affichage(t,n);
+
 
 }
 void remplir(int* t,int n){
@@ -31,7 +33,7 @@ void taille(int* n){
     do{
         printf("donner le taille du tableaux:\n");
         scanf("%d",n);
-    }while(*n<0 || *n>20);
+    }while(*n<=0 || *n>20);
 }
 
 int recherche(int* t,int n){
