@@ -10,10 +10,10 @@ int main(){
     printf("%d",nombreChaine);
     putchar('\n');
     taille(t , n,&indiceDebut,&indiceFin,&length);
-    printf("%d %d %d",indiceDebut,indiceFin,length);
+    printf("indice de debut :%d \nindice de fin:%d \nle taille : %d\n",indiceDebut,indiceFin,length);
     putchar('\n');
     int i;
-    for (i=indiceDebut;i<indiceFin;i++){
+    for (i=indiceDebut;i<=indiceFin;i++){
         printf("%d  ",t[i]);
     }
     }
@@ -36,14 +36,14 @@ void taille(int *t , int n,int *indiceDebut,int *indiceFin,int *length){
             temp=x2-x1;
             if(temp>size){
                 size=temp;
-                y1=x1+1;
+                y1=x1;
                 y2=x2;
                 x1=x2;
             }
         }
     }
     size-=1;
-    *indiceDebut=y1;*indiceFin=y2;*length=size;
+    *indiceDebut=y1+1;*indiceFin=y2-1;*length=size;
     }
     
 
